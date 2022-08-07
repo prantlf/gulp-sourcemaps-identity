@@ -26,13 +26,13 @@ import { ensureMappings } from 'gulp-sourcemaps-identity'
 
 gulp
   .src('src/**/*.js')
-	.pipe(sourcemaps.init())
-	.pipe(ensureMappings())
-	.pipe(sourcemaps.write('../dist', {
-		includeContent: false,
-		sourceRoot: '../dist'
-	}))
-	.pipe(gulp.dest('dist'))
+  .pipe(sourcemaps.init())
+  .pipe(ensureMappings())
+  .pipe(sourcemaps.write('../dist', {
+    includeContent: false,
+    sourceRoot: '../dist'
+  }))
+  .pipe(gulp.dest('dist'))
 ```
 
 ## API
@@ -43,7 +43,7 @@ Options may be passed as properties in an object to the `jsonlint` function. The
 
 ```js
 ensureMappings({
-	filter: undefined,
+  filter: undefined,
   verbose: false
 })
 ```
@@ -54,7 +54,7 @@ ensureMappings({
 ```js
 // if sources include various types, process only scripts
 filter(file) {
-	return file.relative.endsWith('.js')
+  return file.relative.endsWith('.js')
 }
 ```
 

@@ -2,7 +2,7 @@ import { ThroughStream } from 'event-stream'
 import File from 'vinyl'
 
 interface FileWithSourceMap extends File {
-	sourceMap?: Record<string, unknown>
+  sourceMap?: Record<string, unknown>
 }
 
 declare type Filter = (file: FileWithSourceMap) => boolean
