@@ -1,0 +1,95 @@
+{
+  "name": "gulp-sourcemaps-identity",
+  "version": "1.0.0",
+  "description": "Gulp plugin for adding identity mappings to source maps with no mappings, handling JavaScript sources.",
+  "author": "Ferdinand Prantl <prantlf@gmail.com>",
+  "license": "MIT",
+  "licenses": [
+    {
+      "type": "MIT",
+      "url": "https://github.com/prantlf/gulp-sourcemaps-identity/blob/master/LICENSE"
+    }
+  ],
+  "homepage": "https://github.com/prantlf/gulp-sourcemaps-identity#readme",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/prantlf/gulp-sourcemaps-identity.git"
+  },
+  "bugs": {
+    "url": "https://github.com/prantlf/gulp-sourcemaps-identity/issues"
+  },
+  "engines": {
+    "node": ">=14.8"
+  },
+  "type": "module",
+  "module": "lib/index.js",
+  "main": "lib/index.cjs",
+  "types": "lib/index.d.ts",
+  "exports": {
+    "require": "./lib/index.cjs",
+    "import": "./lib/index.js"
+  },
+  "files": [
+    "lib"
+  ],
+  "scripts": {
+    "prepare": "rollup -c",
+    "lint": "denolint && tsc --noEmit test/*.ts",
+    "check": "teru-cjs test/*.cjs && teru-esm test/*.js",
+    "cover": "c8 teru-esm test/*.js",
+    "test": "denolint && tsc --noEmit test/*.ts && teru-cjs test/*.cjs && c8 teru-esm test/*.js"
+  },
+  "c8": {
+    "check-coverage": true,
+    "reporter": [
+      "text",
+      "lcov"
+    ],
+    "branches": 100,
+    "lines": 100,
+    "functions": 100,
+    "statements": 100
+  },
+  "release": {
+    "plugins": [
+      "@semantic-release/commit-analyzer",
+      "@semantic-release/release-notes-generator",
+      "@semantic-release/changelog",
+      "@semantic-release/npm",
+      [
+        "@semantic-release/github",
+        {
+          "failComment": false
+        }
+      ],
+      "@semantic-release/git"
+    ]
+  },
+  "dependencies": {
+    "acorn": "^8.8.0",
+    "event-stream": "^4.0.1",
+    "fancy-log": "^2.0.0",
+    "source-map": "^0.7.4",
+    "vinyl": "^2.2.1"
+  },
+  "devDependencies": {
+    "@node-rs/deno-lint": "^1.14.0",
+    "@semantic-release/changelog": "^6.0.1",
+    "@semantic-release/git": "^10.0.1",
+    "c8": "^7.12.0",
+    "gulp": "^4.0.2",
+    "gulp-sourcemaps": "^3.0.0",
+    "gulp-sourcemaps-identity": "link:",
+    "rollup": "^2.77.2",
+    "tehanu": "^1.0.1",
+    "tehanu-repo-coco": "^1.0.0",
+    "tehanu-teru": "^1.0.0",
+    "typescript": "^4.7.4"
+  },
+  "keywords": [
+    "gulpplugin",
+    "sourcemaps",
+    "source-maps",
+    "identity"
+  ]
+}

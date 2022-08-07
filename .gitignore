@@ -1,0 +1,5 @@
+.DS_Store
+*.map
+coverage
+/lib/index.cjs
+node_modules
