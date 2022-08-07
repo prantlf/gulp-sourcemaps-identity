@@ -22,7 +22,9 @@ jobs:
         run_install: |
           - args: [--frozen-lockfile, --no-verify-store-integrity, --no-optional]
     - name: Test
-      run: npm test
+      run: |
+        pnpm i -D @node-rs/deno-lint-linux-x64-gnu
+        npm test
     - name: Coverage
       uses: codecov/codecov-action@v2
     - name: Publish
